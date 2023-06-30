@@ -76,8 +76,7 @@ def main():
         if model is None:
             continue
         
-        # Get latest data for decision making
-    latest_data = get_historical_data(pair, Client.KLINE_INTERVAL_1HOUR, "1 hour ago UTC")
+        # Get latest data for decision making latest_data = get_historical_data(pair, Client.KLINE_INTERVAL_1HOUR, "1 hour ago UTC")
         if latest_data is None:
             continue
         
