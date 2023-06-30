@@ -9,8 +9,8 @@ import math
 # Initialize logging
 logging.basicConfig(filename='trading_bot.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
-api_key = 'YOUR_API_KEY'
-api_secret = 'YOUR_API_SECRET'
+api_key = 'BdsqHhEOpeLf9axXtKoMI2jzNFODlqPjd4Wt1R7acHvOpOnL3gmzMRCN11XHnab0'
+api_secret = '3cyxoje0kcgMiSlydg4tb4VJd7F5hOXrSa2T7sGnDAkmAsFE8Xln7LSaQRrcIPf5'
 client = Client(api_key, api_secret)
 
 # Define trading pairs
