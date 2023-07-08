@@ -1,0 +1,7 @@
+pandas
+python-binance
+scikit-learn
+ccxt
+TA-Lib
+freqtrade
+qtpylib
