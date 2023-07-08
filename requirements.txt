@@ -4,4 +4,4 @@ scikit-learn
 ccxt
 TA-Lib
 freqtrade
-qtpylib
+QTPyLib==1.5.82
