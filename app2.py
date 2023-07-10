@@ -1,3 +1,4 @@
+import streamlit as st
 import os
 os.system('pip install ccxt==1.59.2')
 import ccxt
@@ -61,21 +62,25 @@ def execute_trade(symbol, side, cost, order_type=Client.ORDER_TYPE_MARKET):
         raise e
 
 def main():
-    for pair in trading_pairs:
-        data = get_historical_data(pair, Client.KLINE_INTERVAL_1DAY)
+    pair = st.selectbox('Select trading pair', trading_pairs)
+    data = get_historical_data(pair, Client.KLINE_INTERVAL_1DAY)
 
-        model = train_model(data)
+    model = train_model(data)
 
-        latest_data = get_historical_data(pair, Client.KLINE_INTERVAL_1DAY)
-        latest_data['SMA'] = calculate_sma(latest_data, 14)
-        X_latest = latest_data.drop('date', axis=1).dropna()
-        
-        prediction = model.predict(X_latest.values.reshape(1, -1))
+    st.write(f"Model trained on {pair} data with accuracy {model.score}.")
 
-        if prediction[0] == 1:
-            execute_trade(pair, "buy", 0.001)
-        elif prediction[0] == 0:
-            execute_trade(pair, "sell", 0.001)
+    latest_data = get_historical_data(pair, Client.KLINE_INTERVAL_1DAY)
+    latest_data['SMA'] = calculate_sma(latest_data, 14)
+    X_latest = latest_data.drop('date', axis=1).dropna()
+    
+    prediction = model.predict(X_latest.values.reshape(1, -1))
+
+    if prediction[0] == 1:
+        st.write(f"Model prediction: BUY {pair}.")
+        execute_trade(pair, "buy", 0.001)
+    elif prediction[0] == 0:
+        st.write(f"Model prediction: SELL {pair}.")
+        execute_trade(pair, "sell", 0.001)
 
 if __name__ == '__main__':
     main()
