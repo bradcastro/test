@@ -1,4 +1,6 @@
 import os
+os.system('pip install ccxt==1.59.2')
+import ccxt
 import pandas as pd
 from binance.client import Client
 from sklearn.ensemble import RandomForestClassifier
@@ -6,7 +8,6 @@ from sklearn.model_selection import train_test_split
 import talib.abstract as ta
 import logging
 import math
-import ccxt
 
 logging.basicConfig(filename='trading_bot.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
