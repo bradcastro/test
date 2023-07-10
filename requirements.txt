@@ -1,6 +1,8 @@
-pandas
-python-binance
-scikit-learn
-ccxt
-TA-Lib
-freqtrade
+streamlit==1.24.0
+pandas==1.4.1
+binance-client==0.7.11
+scikit-learn==1.0.2
+ccxt==1.59.2
+pandas-ta==0.3.14b0
+freqtrade==2021.10
+qtpylib==1.5.87
